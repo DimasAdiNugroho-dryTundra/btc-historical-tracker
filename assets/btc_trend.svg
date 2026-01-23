@@ -15,7 +15,7 @@
 
   <!-- Title & Current Price Badge -->
   <text x="75" y="28" fill="#8b949e" font-size="12" font-weight="600" letter-spacing="0.8">BITCOIN 30-DAY ROLLING SPOT TREND (USD)</text>
-  <text x="765" y="28" text-anchor="end" fill="#00E676" font-size="14" font-weight="700">$89,559.67 (+2.16%)</text>
+  <text x="765" y="28" text-anchor="end" fill="#00E676" font-size="14" font-weight="700">$89,600.26 (+2.72%)</text>
 
   <!-- Horizontal Gridlines & Price Labels -->
   <line x1="75" y1="45" x2="765" y2="45" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
@@ -28,14 +28,14 @@
   <text x="65" y="279" text-anchor="end" fill="#8b949e" font-size="11">$87,225</text>
 
   <!-- Area Fill & Trend Curve -->
-  <path d="M 75.0,264.5 L 98.8,275.0 L 122.6,271.6 L 146.4,259.6 L 170.2,257.8 L 194.0,274.7 L 217.8,245.2 L 241.6,265.0 L 265.3,236.8 L 289.1,209.5 L 312.9,194.5 L 336.7,173.2 L 360.5,118.1 L 384.3,120.8 L 408.1,177.1 L 431.9,183.4 L 455.7,194.2 L 479.5,197.5 L 503.3,185.4 L 527.1,178.7 L 550.9,81.4 L 574.7,45.0 L 598.4,76.9 L 622.2,78.1 L 646.0,87.7 L 669.8,122.5 L 693.6,147.2 L 717.4,246.6 L 741.2,222.3 L 765.0,219.8 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
-  <path d="M 75.0,264.5 L 98.8,275.0 L 122.6,271.6 L 146.4,259.6 L 170.2,257.8 L 194.0,274.7 L 217.8,245.2 L 241.6,265.0 L 265.3,236.8 L 289.1,209.5 L 312.9,194.5 L 336.7,173.2 L 360.5,118.1 L 384.3,120.8 L 408.1,177.1 L 431.9,183.4 L 455.7,194.2 L 479.5,197.5 L 503.3,185.4 L 527.1,178.7 L 550.9,81.4 L 574.7,45.0 L 598.4,76.9 L 622.2,78.1 L 646.0,87.7 L 669.8,122.5 L 693.6,147.2 L 717.4,246.6 L 741.2,222.3 L 765.0,219.8" fill="none" stroke="#00E676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M 75.0,275.0 L 98.8,271.6 L 122.6,259.6 L 146.4,257.8 L 170.2,274.7 L 194.0,245.2 L 217.8,265.0 L 241.6,236.8 L 265.3,209.5 L 289.1,194.5 L 312.9,173.2 L 336.7,118.1 L 360.5,120.8 L 384.3,177.1 L 408.1,183.4 L 431.9,194.2 L 455.7,197.5 L 479.5,185.4 L 503.3,178.7 L 527.1,81.4 L 550.9,45.0 L 574.7,76.9 L 598.4,78.1 L 622.2,87.7 L 646.0,122.5 L 669.8,147.2 L 693.6,246.6 L 717.4,222.3 L 741.2,219.8 L 765.0,218.8 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
+  <path d="M 75.0,275.0 L 98.8,271.6 L 122.6,259.6 L 146.4,257.8 L 170.2,274.7 L 194.0,245.2 L 217.8,265.0 L 241.6,236.8 L 265.3,209.5 L 289.1,194.5 L 312.9,173.2 L 336.7,118.1 L 360.5,120.8 L 384.3,177.1 L 408.1,183.4 L 431.9,194.2 L 455.7,197.5 L 479.5,185.4 L 503.3,178.7 L 527.1,81.4 L 550.9,45.0 L 574.7,76.9 L 598.4,78.1 L 622.2,87.7 L 646.0,122.5 L 669.8,147.2 L 693.6,246.6 L 717.4,222.3 L 741.2,219.8 L 765.0,218.8" fill="none" stroke="#00E676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
 
   <!-- Last Point Indicator -->
-  <circle cx="765.0" cy="219.8" r="4.5" fill="#ffffff" stroke="#00E676" stroke-width="2.5"/>
+  <circle cx="765.0" cy="218.8" r="4.5" fill="#ffffff" stroke="#00E676" stroke-width="2.5"/>
 
   <!-- Date Axis Labels -->
-  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2025-12-24</text>
-  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-01-08</text>
-  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-01-22</text>
+  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2025-12-25</text>
+  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-01-09</text>
+  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-01-23</text>
 </svg>
