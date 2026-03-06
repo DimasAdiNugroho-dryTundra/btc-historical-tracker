@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="100%" height="100%" style="background:#0d1117;border-radius:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
   <defs>
     <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="rgba(255, 82, 82, 0.35)"/>
-      <stop offset="100%" stop-color="rgba(255, 82, 82, 0.0)"/>
+      <stop offset="0%" stop-color="rgba(0, 230, 118, 0.35)"/>
+      <stop offset="100%" stop-color="rgba(0, 230, 118, 0.0)"/>
     </linearGradient>
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur" />
@@ -15,27 +15,27 @@
 
   <!-- Title & Current Price Badge -->
   <text x="75" y="28" fill="#8b949e" font-size="12" font-weight="600" letter-spacing="0.8">BITCOIN 30-DAY ROLLING SPOT TREND (USD)</text>
-  <text x="765" y="28" text-anchor="end" fill="#FF5252" font-size="14" font-weight="700">$70,890.72 (-3.11%)</text>
+  <text x="765" y="28" text-anchor="end" fill="#00E676" font-size="14" font-weight="700">$68,114.02 (+8.27%)</text>
 
   <!-- Horizontal Gridlines & Price Labels -->
   <line x1="75" y1="45" x2="765" y2="45" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="65" y="49" text-anchor="end" fill="#8b949e" font-size="11">$73,166</text>
+  <text x="65" y="49" text-anchor="end" fill="#8b949e" font-size="11">$72,667</text>
 
   <line x1="75" y1="160.0" x2="765" y2="160.0" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="65" y="164.0" text-anchor="end" fill="#8b949e" font-size="11">$68,038</text>
+  <text x="65" y="164.0" text-anchor="end" fill="#8b949e" font-size="11">$67,788</text>
 
   <line x1="75" y1="275" x2="765" y2="275" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
   <text x="65" y="279" text-anchor="end" fill="#8b949e" font-size="11">$62,910</text>
 
   <!-- Area Fill & Trend Curve -->
-  <path d="M 75.0,45.0 L 98.8,275.0 L 122.6,103.0 L 146.4,131.9 L 170.2,108.6 L 194.0,112.9 L 217.8,142.0 L 241.6,181.4 L 265.3,199.6 L 289.1,141.7 L 312.9,120.0 L 336.7,142.2 L 360.5,140.8 L 384.3,172.0 L 408.1,195.4 L 431.9,183.2 L 455.7,160.4 L 479.5,161.4 L 503.3,168.8 L 527.1,235.8 L 550.9,249.2 L 574.7,161.1 L 598.4,172.4 L 622.2,208.6 L 646.0,183.9 L 669.8,210.7 L 693.6,142.2 L 717.4,153.3 L 741.2,56.2 L 765.0,96.0 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
-  <path d="M 75.0,45.0 L 98.8,275.0 L 122.6,103.0 L 146.4,131.9 L 170.2,108.6 L 194.0,112.9 L 217.8,142.0 L 241.6,181.4 L 265.3,199.6 L 289.1,141.7 L 312.9,120.0 L 336.7,142.2 L 360.5,140.8 L 384.3,172.0 L 408.1,195.4 L 431.9,183.2 L 455.7,160.4 L 479.5,161.4 L 503.3,168.8 L 527.1,235.8 L 550.9,249.2 L 574.7,161.1 L 598.4,172.4 L 622.2,208.6 L 646.0,183.9 L 669.8,210.7 L 693.6,142.2 L 717.4,153.3 L 741.2,56.2 L 765.0,96.0" fill="none" stroke="#FF5252" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M 75.0,275.0 L 98.8,94.2 L 122.6,124.6 L 146.4,100.1 L 170.2,104.6 L 194.0,135.2 L 217.8,176.6 L 241.6,195.7 L 265.3,134.9 L 289.1,112.0 L 312.9,135.4 L 336.7,134.0 L 360.5,166.7 L 384.3,191.3 L 408.1,178.5 L 431.9,154.5 L 455.7,155.6 L 479.5,163.4 L 503.3,233.8 L 527.1,247.9 L 550.9,155.3 L 574.7,167.1 L 598.4,205.2 L 622.2,179.2 L 646.0,207.4 L 669.8,135.4 L 693.6,147.0 L 717.4,45.0 L 741.2,86.9 L 765.0,152.3 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
+  <path d="M 75.0,275.0 L 98.8,94.2 L 122.6,124.6 L 146.4,100.1 L 170.2,104.6 L 194.0,135.2 L 217.8,176.6 L 241.6,195.7 L 265.3,134.9 L 289.1,112.0 L 312.9,135.4 L 336.7,134.0 L 360.5,166.7 L 384.3,191.3 L 408.1,178.5 L 431.9,154.5 L 455.7,155.6 L 479.5,163.4 L 503.3,233.8 L 527.1,247.9 L 550.9,155.3 L 574.7,167.1 L 598.4,205.2 L 622.2,179.2 L 646.0,207.4 L 669.8,135.4 L 693.6,147.0 L 717.4,45.0 L 741.2,86.9 L 765.0,152.3" fill="none" stroke="#00E676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
 
   <!-- Last Point Indicator -->
-  <circle cx="765.0" cy="96.0" r="4.5" fill="#ffffff" stroke="#FF5252" stroke-width="2.5"/>
+  <circle cx="765.0" cy="152.3" r="4.5" fill="#ffffff" stroke="#00E676" stroke-width="2.5"/>
 
   <!-- Date Axis Labels -->
-  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-02-04</text>
-  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-02-19</text>
-  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-03-05</text>
+  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-02-05</text>
+  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-02-20</text>
+  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-03-06</text>
 </svg>
