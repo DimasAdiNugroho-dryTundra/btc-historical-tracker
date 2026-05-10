@@ -6,7 +6,7 @@
 [![Network](https://img.shields.io/badge/Network-Bitcoin_Mainnet-F7931A?style=for-the-badge&logo=bitcoin&logoColor=white)](https://github.com)
 [![Automation](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 [![Data Feed](https://img.shields.io/badge/Data_Feed-Binance_Spot_API-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://api.binance.com)
-[![Last Updated](https://img.shields.io/badge/Last_Updated-2026--05--09%2020:07%20UTC-212121?style=for-the-badge&logo=clock&logoColor=white)](https://github.com)
+[![Last Updated](https://img.shields.io/badge/Last_Updated-2026--05--10%2015:13%20UTC-212121?style=for-the-badge&logo=clock&logoColor=white)](https://github.com)
 
 </div>
 
@@ -18,10 +18,10 @@ Real-time Bitcoin ($BTC) market tracking telemetry, algorithmic historical bench
 
 | Telemetry Metric | Spot Value (USD) | 24h Trend / Spread | Reference Context |
 | :--- | :--- | :--- | :--- |
-| **Current BTC Price** | **$80,678.40** | 🟢 `+0.61%` | Real-time Aggregate Spot |
-| **24h Price Range** | `$80,129.85 — $81,080.00` | `Spread: $950.15` | Intraday Volatility Band |
-| **24h Trading Volume** | `$607.60 M` | `7,548.42 BTC` | 24h Spot Pair Turnover |
-| **Estimated Market Cap** | `$1.60 T` | `Rank #1` | Circulating Supply: ~19.85M BTC |
+| **Current BTC Price** | **$82,210.07** | 🟢 `+1.90%` | Real-time Aggregate Spot |
+| **24h Price Range** | `$80,279.77 — $82,479.32` | `Spread: $2,199.55` | Intraday Volatility Band |
+| **24h Trading Volume** | `$977.22 M` | `12,034.32 BTC` | 24h Spot Pair Turnover |
+| **Estimated Market Cap** | `$1.63 T` | `Rank #1` | Circulating Supply: ~19.85M BTC |
 
 ---
 
@@ -39,13 +39,13 @@ Comparison of current spot valuation against standard macroeconomic and historic
 
 | Timeframe Horizon | Benchmark Date | Historical Base Price | Net Change ($) | ROI Return (%) | Direction & Velocity |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **24 Hours** | `2026-05-08` | $80,193.17 | `+$485.23` | 🟢 +0.61% | Intraday Shift |
-| **7 Days** | `2026-05-02` | $78,686.85 | `+$1,991.55` | 🟢 +2.53% | Weekly Momentum |
-| **30 Days (1M)** | `2026-04-09` | $71,787.97 | `+$8,890.43` | 🟢 +12.38% | Monthly Trajectory |
-| **90 Days (Quarterly)** | `2026-02-08` | $70,330.38 | `+$10,348.02` | 🟢 +14.71% | Quarterly Baseline |
-| **180 Days (Half-Year)** | `2025-11-10` | $106,011.13 | `-$25,332.73` | 🔴 -23.90% | Semi-Annual Cycle |
-| **365 Days (1 Year)** | `2025-05-09` | $102,971.99 | `-$22,293.59` | 🔴 -21.65% | Macro Annual Delta |
-| **All-Time High (ATH)** | `2025-10-06` | $126,199.63 | `-$45,521.23` | 🔴 `-36.07%` | Peak Drawdown |
+| **24 Hours** | `2026-05-09` | $80,678.40 | `+$1,531.67` | 🟢 +1.90% | Intraday Shift |
+| **7 Days** | `2026-05-03` | $78,568.57 | `+$3,641.50` | 🟢 +4.63% | Weekly Momentum |
+| **30 Days (1M)** | `2026-04-10` | $72,962.70 | `+$9,247.37` | 🟢 +12.67% | Monthly Trajectory |
+| **90 Days (Quarterly)** | `2026-02-09` | $70,138.00 | `+$12,072.07` | 🟢 +17.21% | Quarterly Baseline |
+| **180 Days (Half-Year)** | `2025-11-11` | $103,058.99 | `-$20,848.92` | 🔴 -20.23% | Semi-Annual Cycle |
+| **365 Days (1 Year)** | `2025-05-10` | $104,809.53 | `-$22,599.46` | 🔴 -21.56% | Macro Annual Delta |
+| **All-Time High (ATH)** | `2025-10-06` | $126,199.63 | `-$43,989.56` | 🔴 `-34.86%` | Peak Drawdown |
 
 ---
 
@@ -55,13 +55,13 @@ Detailed historical daily candlestick telemetry for the last 7 trading sessions.
 
 | Date (UTC) | Open (USD) | High (USD) | Low (USD) | Close (USD) | 24h Change | Volume (BTC) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
+| `2026-05-10` | $80,678.41 | $82,479.32 | $80,279.77 | $82,210.07 | 🟢 +1.90% | `12,034.32 BTC` |
 | `2026-05-09` | $80,193.18 | $81,080.00 | $80,129.85 | $80,678.40 | 🟢 +0.61% | `7,548.42 BTC` |
 | `2026-05-08` | $80,006.00 | $80,500.00 | $79,181.48 | $80,193.17 | 🟢 +0.23% | `16,001.31 BTC` |
 | `2026-05-07` | $81,447.01 | $81,708.32 | $79,500.00 | $80,006.00 | 🔴 -1.77% | `16,154.80 BTC` |
 | `2026-05-06` | $80,905.53 | $82,850.00 | $80,731.14 | $81,447.01 | 🟢 +0.67% | `18,798.77 BTC` |
 | `2026-05-05` | $79,861.01 | $81,791.48 | $79,808.72 | $80,905.52 | 🟢 +1.31% | `16,947.18 BTC` |
 | `2026-05-04` | $78,568.58 | $80,776.99 | $78,202.00 | $79,861.01 | 🟢 +1.64% | `26,042.96 BTC` |
-| `2026-05-03` | $78,686.84 | $79,447.00 | $78,084.08 | $78,568.57 | 🔴 -0.15% | `7,425.79 BTC` |
 
 ---
 
@@ -88,6 +88,6 @@ Detailed historical daily candlestick telemetry for the last 7 trading sessions.
 
 <div align="center">
 
-*Last Telemetry Sync: `2026-05-09 20:07:58 UTC` • Data Feed: `Binance Spot (BTC/USDT)` • Status: `Operational (HTTP 200 OK)`*
+*Last Telemetry Sync: `2026-05-10 15:13:41 UTC` • Data Feed: `Binance Spot (BTC/USDT)` • Status: `Operational (HTTP 200 OK)`*
 
 </div>
