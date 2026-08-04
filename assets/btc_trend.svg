@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="100%" height="100%" style="background:#0d1117;border-radius:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
   <defs>
     <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="rgba(255, 82, 82, 0.35)"/>
-      <stop offset="100%" stop-color="rgba(255, 82, 82, 0.0)"/>
+      <stop offset="0%" stop-color="rgba(0, 230, 118, 0.35)"/>
+      <stop offset="100%" stop-color="rgba(0, 230, 118, 0.0)"/>
     </linearGradient>
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur" />
@@ -15,7 +15,7 @@
 
   <!-- Title & Current Price Badge -->
   <text x="75" y="28" fill="#8b949e" font-size="12" font-weight="600" letter-spacing="0.8">BITCOIN 30-DAY ROLLING SPOT TREND (USD)</text>
-  <text x="765" y="28" text-anchor="end" fill="#FF5252" font-size="14" font-weight="700">$63,520.00 (-0.20%)</text>
+  <text x="765" y="28" text-anchor="end" fill="#00E676" font-size="14" font-weight="700">$64,106.56 (+0.10%)</text>
 
   <!-- Horizontal Gridlines & Price Labels -->
   <line x1="75" y1="45" x2="765" y2="45" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
@@ -28,14 +28,14 @@
   <text x="65" y="279" text-anchor="end" fill="#8b949e" font-size="11">$62,290</text>
 
   <!-- Area Fill & Trend Curve -->
-  <path d="M 75.0,201.7 L 98.8,180.5 L 122.6,217.1 L 146.4,275.0 L 170.2,224.3 L 194.0,174.1 L 217.8,192.6 L 241.6,194.7 L 265.3,272.6 L 289.1,126.5 L 312.9,142.0 L 336.7,192.0 L 360.5,186.5 L 384.3,137.8 L 408.1,143.9 L 431.9,115.1 L 455.7,45.0 L 479.5,68.8 L 503.3,123.6 L 527.1,175.3 L 550.9,162.6 L 574.7,107.3 L 598.4,196.0 L 622.2,187.4 L 646.0,183.7 L 669.8,140.8 L 693.6,242.8 L 717.4,246.2 L 741.2,206.0 L 765.0,208.7 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
-  <path d="M 75.0,201.7 L 98.8,180.5 L 122.6,217.1 L 146.4,275.0 L 170.2,224.3 L 194.0,174.1 L 217.8,192.6 L 241.6,194.7 L 265.3,272.6 L 289.1,126.5 L 312.9,142.0 L 336.7,192.0 L 360.5,186.5 L 384.3,137.8 L 408.1,143.9 L 431.9,115.1 L 455.7,45.0 L 479.5,68.8 L 503.3,123.6 L 527.1,175.3 L 550.9,162.6 L 574.7,107.3 L 598.4,196.0 L 622.2,187.4 L 646.0,183.7 L 669.8,140.8 L 693.6,242.8 L 717.4,246.2 L 741.2,206.0 L 765.0,208.7" fill="none" stroke="#FF5252" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M 75.0,180.5 L 98.8,217.1 L 122.6,275.0 L 146.4,224.3 L 170.2,174.1 L 194.0,192.6 L 217.8,194.7 L 241.6,272.6 L 265.3,126.5 L 289.1,142.0 L 312.9,192.0 L 336.7,186.5 L 360.5,137.8 L 384.3,143.9 L 408.1,115.1 L 431.9,45.0 L 455.7,68.8 L 479.5,123.6 L 503.3,175.3 L 527.1,162.6 L 550.9,107.3 L 574.7,196.0 L 598.4,187.4 L 622.2,183.7 L 646.0,140.8 L 669.8,242.8 L 693.6,246.2 L 717.4,206.0 L 741.2,208.7 L 765.0,177.1 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
+  <path d="M 75.0,180.5 L 98.8,217.1 L 122.6,275.0 L 146.4,224.3 L 170.2,174.1 L 194.0,192.6 L 217.8,194.7 L 241.6,272.6 L 265.3,126.5 L 289.1,142.0 L 312.9,192.0 L 336.7,186.5 L 360.5,137.8 L 384.3,143.9 L 408.1,115.1 L 431.9,45.0 L 455.7,68.8 L 479.5,123.6 L 503.3,175.3 L 527.1,162.6 L 550.9,107.3 L 574.7,196.0 L 598.4,187.4 L 622.2,183.7 L 646.0,140.8 L 669.8,242.8 L 693.6,246.2 L 717.4,206.0 L 741.2,208.7 L 765.0,177.1" fill="none" stroke="#00E676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
 
   <!-- Last Point Indicator -->
-  <circle cx="765.0" cy="208.7" r="4.5" fill="#ffffff" stroke="#FF5252" stroke-width="2.5"/>
+  <circle cx="765.0" cy="177.1" r="4.5" fill="#ffffff" stroke="#00E676" stroke-width="2.5"/>
 
   <!-- Date Axis Labels -->
-  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-07-05</text>
-  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-07-20</text>
-  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-08-03</text>
+  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-07-06</text>
+  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-07-21</text>
+  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-08-04</text>
 </svg>
