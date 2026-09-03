@@ -2,7 +2,7 @@
 """
 Bitcoin & Crypto Historical Tracker
 Standalone Daily Telemetry & Dashboard Generator
-Includes Pure Python SVG Area Chart Generator & Multi-Timeframe Performance Matrix
+Resilient 4-Tier Multi-Exchange Fallback (Binance -> Coinbase -> Kraken -> CoinGecko)
 """
 
 import os
@@ -12,8 +12,8 @@ import datetime
 import urllib.request
 import urllib.error
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-CIRCULATING_SUPPLY = 19_850_000.0  # Estimated circulating supply
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+CIRCULATING_SUPPLY = 19_850_000.0
 
 
 def fetch_json(url: str, timeout: int = 15) -> dict | list:
@@ -24,12 +24,10 @@ def fetch_json(url: str, timeout: int = 15) -> dict | list:
 
 
 def format_usd(val: float) -> str:
-    """Format numeric values as USD currency ($xx,xxx.xx)."""
     return f"${val:,.2f}"
 
 
 def format_compact_usd(val: float) -> str:
-    """Format large numbers into compact B or T format."""
     if val >= 1_000_000_000_000:
         return f"${val / 1_000_000_000_000:.2f} T"
     elif val >= 1_000_000_000:
@@ -40,7 +38,6 @@ def format_compact_usd(val: float) -> str:
 
 
 def format_change(pct: float) -> str:
-    """Format percentage with colorized direction emoji."""
     if pct > 0.001:
         return f"🟢 +{pct:.2f}%"
     elif pct < -0.001:
@@ -49,7 +46,6 @@ def format_change(pct: float) -> str:
 
 
 def get_trend_icon(pct: float) -> str:
-    """Return status emoji for price movement."""
     if pct > 0.001:
         return "🟢"
     elif pct < -0.001:
@@ -57,8 +53,12 @@ def get_trend_icon(pct: float) -> str:
     return "🟡"
 
 
-def fetch_binance_data():
-    """Fetch spot klines and 24h ticker from Binance REST API."""
+# ==========================================
+# Multi-Exchange Data Ingestion (4 Tiers)
+# ==========================================
+
+def fetch_binance_data() -> dict:
+    """Tier 1: Binance Spot REST API."""
     klines_url = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=450"
     ticker_url = "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT"
 
@@ -97,8 +97,84 @@ def fetch_binance_data():
     }
 
 
-def fetch_coingecko_fallback():
-    """Fallback to CoinGecko if Binance is unreachable."""
+def fetch_coinbase_data() -> dict:
+    """Tier 2: Coinbase Exchange REST API (US Datacenter Native)."""
+    candles_url = "https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=86400"
+    raw = fetch_json(candles_url)
+    # Format: [time, low, high, open, close, volume]
+    candles = []
+    for k in reversed(raw):
+        candles.append({
+            "timestamp": int(k[0]) * 1000,
+            "date": datetime.datetime.fromtimestamp(k[0], tz=datetime.timezone.utc).strftime("%Y-%m-%d"),
+            "low": float(k[1]),
+            "high": float(k[2]),
+            "open": float(k[3]),
+            "close": float(k[4]),
+            "vol_btc": float(k[5]),
+            "vol_usd": float(k[5]) * float(k[4]),
+        })
+
+    latest = candles[-1]
+    curr_price = latest["close"]
+    chg_24h = ((curr_price - latest["open"]) / latest["open"]) * 100 if latest["open"] > 0 else 0.0
+
+    return {
+        "source": "Coinbase Exchange API",
+        "current_price": curr_price,
+        "high_24h": latest["high"],
+        "low_24h": latest["low"],
+        "chg_24h": chg_24h,
+        "vol_btc_24h": latest["vol_btc"],
+        "vol_usd_24h": latest["vol_usd"],
+        "candles": candles,
+    }
+
+
+def fetch_kraken_data() -> dict:
+    """Tier 3: Kraken Public REST API."""
+    ohlc_url = "https://api.kraken.com/0/public/OHLC?pair=XBTUSD&interval=1440"
+    ticker_url = "https://api.kraken.com/0/public/Ticker?pair=XBTUSD"
+
+    ohlc_raw = fetch_json(ohlc_url)
+    ticker_raw = fetch_json(ticker_url)
+
+    candles_list = ohlc_raw.get("result", {}).get("XXBTZUSD", [])
+    candles = []
+    for k in candles_list:
+        candles.append({
+            "timestamp": int(k[0]) * 1000,
+            "date": datetime.datetime.fromtimestamp(k[0], tz=datetime.timezone.utc).strftime("%Y-%m-%d"),
+            "open": float(k[1]),
+            "high": float(k[2]),
+            "low": float(k[3]),
+            "close": float(k[4]),
+            "vol_btc": float(k[6]),
+            "vol_usd": float(k[6]) * float(k[4]),
+        })
+
+    t_data = ticker_raw.get("result", {}).get("XXBTZUSD", {})
+    curr = float(t_data["c"][0]) if "c" in t_data else candles[-1]["close"]
+    high = float(t_data["h"][1]) if "h" in t_data else candles[-1]["high"]
+    low = float(t_data["l"][1]) if "l" in t_data else candles[-1]["low"]
+    open_p = float(t_data["o"]) if "o" in t_data else candles[-1]["open"]
+    chg = ((curr - open_p) / open_p) * 100 if open_p > 0 else 0.0
+    vol_btc = float(t_data["v"][1]) if "v" in t_data else candles[-1]["vol_btc"]
+
+    return {
+        "source": "Kraken Public API",
+        "current_price": curr,
+        "high_24h": high,
+        "low_24h": low,
+        "chg_24h": chg,
+        "vol_btc_24h": vol_btc,
+        "vol_usd_24h": vol_btc * curr,
+        "candles": candles,
+    }
+
+
+def fetch_coingecko_data() -> dict:
+    """Tier 4: CoinGecko Public REST API."""
     chart_url = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=450&interval=daily"
     price_url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_vol=true&include_24hr_change=true&include_market_cap=true"
 
@@ -142,6 +218,32 @@ def fetch_coingecko_fallback():
         "candles": candles,
     }
 
+
+def get_market_data() -> dict:
+    """Cascading fallback across 4 exchange providers."""
+    providers = [
+        ("Binance Spot API", fetch_binance_data),
+        ("Coinbase Exchange API", fetch_coinbase_data),
+        ("Kraken Public API", fetch_kraken_data),
+        ("CoinGecko API", fetch_coingecko_data),
+    ]
+
+    for name, fetcher in providers:
+        try:
+            print(f"[+] Querying {name}...")
+            data = fetcher()
+            if data and data.get("candles"):
+                print(f"[✓] {name} online: Current BTC at {format_usd(data['current_price'])}")
+                return data
+        except Exception as e:
+            print(f"[!] {name} failed: {e}. Trying next provider...")
+
+    raise RuntimeError("All market data providers exhausted.")
+
+
+# ==========================================
+# Rendering Engines (SVG & Markdown)
+# ==========================================
 
 def generate_svg_chart(candles_30d: list[dict], width: int = 800, height: int = 320) -> str:
     """Generate high-resolution dark-mode SVG area trend chart."""
@@ -224,7 +326,6 @@ def generate_svg_chart(candles_30d: list[dict], width: int = 800, height: int = 
 
 
 def get_benchmark_candle(candles: list[dict], days_ago: int) -> dict:
-    """Find the candle corresponding to N days prior."""
     latest_dt = datetime.datetime.strptime(candles[-1]["date"], "%Y-%m-%d").date()
     target_dt = latest_dt - datetime.timedelta(days=days_ago)
     target_str = target_dt.strftime("%Y-%m-%d")
@@ -233,7 +334,6 @@ def get_benchmark_candle(candles: list[dict], days_ago: int) -> dict:
 
 
 def generate_readme_content(data: dict, timestamp: datetime.datetime = None) -> str:
-    """Render the comprehensive Bitcoin tracker dashboard in Markdown."""
     if timestamp is None:
         timestamp = datetime.datetime.now(datetime.timezone.utc)
 
@@ -247,7 +347,6 @@ def generate_readme_content(data: dict, timestamp: datetime.datetime = None) -> 
     mcap = curr_price * CIRCULATING_SUPPLY
     candles = data["candles"]
 
-    # Multi-Timeframe Performance Benchmarks
     horizons = [
         ("24 Hours", 1, "Intraday Shift"),
         ("7 Days", 7, "Weekly Momentum"),
@@ -270,7 +369,6 @@ def generate_readme_content(data: dict, timestamp: datetime.datetime = None) -> 
         )
         roi_rows.append(row)
 
-    # ATH Benchmark
     ath_candle = max(candles, key=lambda c: c["high"]) if candles else None
     peak_high = ath_candle["high"] if ath_candle else 108900.0
     ath_price = max(peak_high, 108900.0)
@@ -285,7 +383,6 @@ def generate_readme_content(data: dict, timestamp: datetime.datetime = None) -> 
     roi_rows.append(ath_row)
     performance_matrix_content = "\n".join(roi_rows)
 
-    # 7-Day Price Action Log
     recent_7 = candles[-7:] if len(candles) >= 7 else candles
     seven_day_rows = []
     for c in reversed(recent_7):
@@ -309,7 +406,7 @@ def generate_readme_content(data: dict, timestamp: datetime.datetime = None) -> 
 [![Tracker Status](https://img.shields.io/badge/Tracker_Status-Live_Feed-00C853?style=for-the-badge&logo=rss&logoColor=white)](https://github.com)
 [![Network](https://img.shields.io/badge/Network-Bitcoin_Mainnet-F7931A?style=for-the-badge&logo=bitcoin&logoColor=white)](https://github.com)
 [![Automation](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
-[![Data Feed](https://img.shields.io/badge/Data_Feed-Binance_Spot_API-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://api.binance.com)
+[![Data Feed](https://img.shields.io/badge/Data_Feed-{data['source'].replace(' ', '_')}-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://api.binance.com)
 [![Last Updated](https://img.shields.io/badge/Last_Updated-{badge_date_encoded}-212121?style=for-the-badge&logo=clock&logoColor=white)](https://github.com)
 
 </div>
@@ -360,14 +457,14 @@ Detailed historical daily candlestick telemetry for the last 7 trading sessions.
 ### ⚙️ Automation & Pipeline Architecture
 
 - **Automated Execution:** Synced daily at `00:00 UTC` via GitHub Actions (`.github/workflows/update.yml`).
-- **Zero Overhead:** Pure Python engine generating dynamic SVG vector graphics and Markdown dashboards without heavy dependencies.
-- **Git-Native Telemetry:** Historical state is preserved directly in Git commit history without third-party databases.
+- **Resilient Pipeline:** Cascading multi-exchange API architecture (Binance -> Coinbase -> Kraken -> CoinGecko).
+- **Git-Native Telemetry:** Dynamic SVG vector graphics and Markdown dashboards saved directly into Git history.
 
 ```
 [ GitHub Actions Cron: 00:00 UTC ]
                │
                ▼
-   [ fetch_btc.py Executed ] ──► [ Query Binance / CoinGecko API ]
+   [ fetch_btc.py Executed ] ──► [ Query Multi-Exchange Feeds ]
                │
                ▼
    [ Generate assets/btc_trend.svg & README.md ]
@@ -380,7 +477,7 @@ Detailed historical daily candlestick telemetry for the last 7 trading sessions.
 
 <div align="center">
 
-*Last Telemetry Sync: `{full_timestamp_str} UTC` • Data Feed: `{data['source']} (BTC/USDT)` • Status: `Operational (HTTP 200 OK)`*
+*Last Telemetry Sync: `{full_timestamp_str} UTC` • Data Feed: `{data['source']} (BTC/USD)` • Status: `Operational (HTTP 200 OK)`*
 
 </div>
 """
@@ -393,24 +490,16 @@ def main():
     print("=" * 60)
 
     try:
-        print("[+] Attempting primary feed: Binance Spot API...")
-        data = fetch_binance_data()
-        print(f"[✓] Successfully retrieved Binance Spot data. Current BTC: {format_usd(data['current_price'])}")
+        data = get_market_data()
     except Exception as e:
-        print(f"[!] Binance API error: {e}. Falling back to CoinGecko...")
-        try:
-            data = fetch_coingecko_fallback()
-            print(f"[✓] Fallback successful. Current BTC: {format_usd(data['current_price'])}")
-        except Exception as err2:
-            print(f"[✗] Critical Error: Unable to fetch market data: {err2}")
-            sys.exit(1)
+        print(f"[✗] Critical Error: Unable to fetch market data from any source: {e}")
+        sys.exit(1)
 
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     assets_dir = os.path.join(base_dir, "assets")
     os.makedirs(assets_dir, exist_ok=True)
 
-    # Generate 30-Day SVG Area Chart
     candles_30d = data["candles"][-30:] if len(data["candles"]) >= 30 else data["candles"]
     svg_content = generate_svg_chart(candles_30d)
     svg_path = os.path.join(assets_dir, "btc_trend.svg")
@@ -418,7 +507,6 @@ def main():
         f.write(svg_content)
     print(f"[✓] Generated assets/btc_trend.svg successfully ({len(svg_content)} bytes)")
 
-    # Generate README.md
     readme_content = generate_readme_content(data, now_utc)
     readme_path = os.path.join(base_dir, "README.md")
     with open(readme_path, "w", encoding="utf-8") as f:
