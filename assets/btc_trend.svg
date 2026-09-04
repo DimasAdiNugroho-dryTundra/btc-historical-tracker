@@ -15,27 +15,27 @@
 
   <!-- Title & Current Price Badge -->
   <text x="75" y="28" fill="#8b949e" font-size="12" font-weight="600" letter-spacing="0.8">BITCOIN 30-DAY ROLLING SPOT TREND (USD)</text>
-  <text x="765" y="28" text-anchor="end" fill="#00E676" font-size="14" font-weight="700">$77,714.57 (+20.30%)</text>
+  <text x="765" y="28" text-anchor="end" fill="#00E676" font-size="14" font-weight="700">$80,858.24 (+25.82%)</text>
 
   <!-- Horizontal Gridlines & Price Labels -->
   <line x1="75" y1="45" x2="765" y2="45" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="65" y="49" text-anchor="end" fill="#8b949e" font-size="11">$80,275</text>
+  <text x="65" y="49" text-anchor="end" fill="#8b949e" font-size="11">$81,264</text>
 
   <line x1="75" y1="160.0" x2="765" y2="160.0" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="65" y="164.0" text-anchor="end" fill="#8b949e" font-size="11">$71,556</text>
+  <text x="65" y="164.0" text-anchor="end" fill="#8b949e" font-size="11">$72,050</text>
 
   <line x1="75" y1="275" x2="765" y2="275" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
   <text x="65" y="279" text-anchor="end" fill="#8b949e" font-size="11">$62,837</text>
 
   <!-- Area Fill & Trend Curve -->
-  <path d="M 75.0,251.7 L 98.8,256.1 L 122.6,247.9 L 146.4,247.7 L 170.2,248.5 L 194.0,260.8 L 217.8,265.8 L 241.6,267.4 L 265.3,267.2 L 289.1,273.2 L 312.9,272.6 L 336.7,275.0 L 360.5,253.3 L 384.3,250.7 L 408.1,189.8 L 431.9,140.8 L 455.7,70.7 L 479.5,87.5 L 503.3,78.6 L 527.1,62.1 L 550.9,68.1 L 574.7,61.5 L 598.4,45.0 L 622.2,77.1 L 646.0,71.9 L 669.8,79.4 L 693.6,67.6 L 717.4,82.9 L 741.2,84.1 L 765.0,78.8 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
-  <path d="M 75.0,251.7 L 98.8,256.1 L 122.6,247.9 L 146.4,247.7 L 170.2,248.5 L 194.0,260.8 L 217.8,265.8 L 241.6,267.4 L 265.3,267.2 L 289.1,273.2 L 312.9,272.6 L 336.7,275.0 L 360.5,253.3 L 384.3,250.7 L 408.1,189.8 L 431.9,140.8 L 455.7,70.7 L 479.5,87.5 L 503.3,78.6 L 527.1,62.1 L 550.9,68.1 L 574.7,61.5 L 598.4,45.0 L 622.2,77.1 L 646.0,71.9 L 669.8,79.4 L 693.6,67.6 L 717.4,82.9 L 741.2,84.1 L 765.0,78.8" fill="none" stroke="#00E676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M 75.0,257.1 L 98.8,249.4 L 122.6,249.1 L 146.4,249.9 L 170.2,261.6 L 194.0,266.3 L 217.8,267.8 L 241.6,267.7 L 265.3,273.3 L 289.1,272.7 L 312.9,275.0 L 336.7,254.4 L 360.5,252.0 L 384.3,194.3 L 408.1,148.0 L 431.9,81.7 L 455.7,97.5 L 479.5,89.1 L 503.3,73.5 L 527.1,79.2 L 550.9,72.9 L 574.7,57.3 L 598.4,87.7 L 622.2,82.8 L 646.0,89.9 L 669.8,78.7 L 693.6,93.2 L 717.4,94.4 L 741.2,45.0 L 765.0,50.1 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
+  <path d="M 75.0,257.1 L 98.8,249.4 L 122.6,249.1 L 146.4,249.9 L 170.2,261.6 L 194.0,266.3 L 217.8,267.8 L 241.6,267.7 L 265.3,273.3 L 289.1,272.7 L 312.9,275.0 L 336.7,254.4 L 360.5,252.0 L 384.3,194.3 L 408.1,148.0 L 431.9,81.7 L 455.7,97.5 L 479.5,89.1 L 503.3,73.5 L 527.1,79.2 L 550.9,72.9 L 574.7,57.3 L 598.4,87.7 L 622.2,82.8 L 646.0,89.9 L 669.8,78.7 L 693.6,93.2 L 717.4,94.4 L 741.2,45.0 L 765.0,50.1" fill="none" stroke="#00E676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
 
   <!-- Last Point Indicator -->
-  <circle cx="765.0" cy="78.8" r="4.5" fill="#ffffff" stroke="#00E676" stroke-width="2.5"/>
+  <circle cx="765.0" cy="50.1" r="4.5" fill="#ffffff" stroke="#00E676" stroke-width="2.5"/>
 
   <!-- Date Axis Labels -->
-  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-08-05</text>
-  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-08-20</text>
-  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-09-03</text>
+  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-08-06</text>
+  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-08-21</text>
+  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-09-04</text>
 </svg>
