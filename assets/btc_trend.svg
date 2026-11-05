@@ -15,27 +15,27 @@
 
   <!-- Title & Current Price Badge -->
   <text x="75" y="28" fill="#8b949e" font-size="12" font-weight="600" letter-spacing="0.8">BITCOIN 30-DAY ROLLING SPOT TREND (USD)</text>
-  <text x="765" y="28" text-anchor="end" fill="#FF5252" font-size="14" font-weight="700">$77,269.95 (-9.67%)</text>
+  <text x="765" y="28" text-anchor="end" fill="#FF5252" font-size="14" font-weight="700">$80,443.67 (-3.40%)</text>
 
   <!-- Horizontal Gridlines & Price Labels -->
   <line x1="75" y1="45" x2="765" y2="45" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="65" y="49" text-anchor="end" fill="#8b949e" font-size="11">$85,540</text>
+  <text x="65" y="49" text-anchor="end" fill="#8b949e" font-size="11">$84,025</text>
 
   <line x1="75" y1="160.0" x2="765" y2="160.0" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="65" y="164.0" text-anchor="end" fill="#8b949e" font-size="11">$81,107</text>
+  <text x="65" y="164.0" text-anchor="end" fill="#8b949e" font-size="11">$80,349</text>
 
   <line x1="75" y1="275" x2="765" y2="275" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
   <text x="65" y="279" text-anchor="end" fill="#8b949e" font-size="11">$76,674</text>
 
   <!-- Area Fill & Trend Curve -->
-  <path d="M 75.0,45.0 L 98.8,103.8 L 122.6,144.8 L 146.4,122.7 L 170.2,113.2 L 194.0,93.3 L 217.8,143.5 L 241.6,108.2 L 265.3,148.1 L 289.1,133.4 L 312.9,149.8 L 336.7,153.0 L 360.5,136.7 L 384.3,141.0 L 408.1,112.5 L 431.9,84.3 L 455.7,154.8 L 479.5,160.8 L 503.3,168.8 L 527.1,187.3 L 550.9,188.5 L 574.7,168.0 L 598.4,156.3 L 622.2,246.3 L 646.0,261.9 L 669.8,255.5 L 693.6,234.6 L 717.4,275.0 L 741.2,257.8 L 765.0,259.5 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
-  <path d="M 75.0,45.0 L 98.8,103.8 L 122.6,144.8 L 146.4,122.7 L 170.2,113.2 L 194.0,93.3 L 217.8,143.5 L 241.6,108.2 L 265.3,148.1 L 289.1,133.4 L 312.9,149.8 L 336.7,153.0 L 360.5,136.7 L 384.3,141.0 L 408.1,112.5 L 431.9,84.3 L 455.7,154.8 L 479.5,160.8 L 503.3,168.8 L 527.1,187.3 L 550.9,188.5 L 574.7,168.0 L 598.4,156.3 L 622.2,246.3 L 646.0,261.9 L 669.8,255.5 L 693.6,234.6 L 717.4,275.0 L 741.2,257.8 L 765.0,259.5" fill="none" stroke="#FF5252" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M 75.0,68.5 L 98.8,118.0 L 122.6,91.3 L 146.4,79.9 L 170.2,55.8 L 194.0,116.4 L 217.8,73.9 L 241.6,121.9 L 265.3,104.2 L 289.1,124.0 L 312.9,127.8 L 336.7,108.1 L 360.5,113.4 L 384.3,79.0 L 408.1,45.0 L 431.9,130.0 L 455.7,137.2 L 479.5,146.8 L 503.3,169.3 L 527.1,170.7 L 550.9,145.9 L 574.7,131.8 L 598.4,240.4 L 622.2,259.2 L 646.0,251.5 L 669.8,226.3 L 693.6,275.0 L 717.4,254.3 L 741.2,157.5 L 765.0,157.1 L 765.0,275.0 L 75.0,275.0 Z" fill="url(#areaGrad)" />
+  <path d="M 75.0,68.5 L 98.8,118.0 L 122.6,91.3 L 146.4,79.9 L 170.2,55.8 L 194.0,116.4 L 217.8,73.9 L 241.6,121.9 L 265.3,104.2 L 289.1,124.0 L 312.9,127.8 L 336.7,108.1 L 360.5,113.4 L 384.3,79.0 L 408.1,45.0 L 431.9,130.0 L 455.7,137.2 L 479.5,146.8 L 503.3,169.3 L 527.1,170.7 L 550.9,145.9 L 574.7,131.8 L 598.4,240.4 L 622.2,259.2 L 646.0,251.5 L 669.8,226.3 L 693.6,275.0 L 717.4,254.3 L 741.2,157.5 L 765.0,157.1" fill="none" stroke="#FF5252" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
 
   <!-- Last Point Indicator -->
-  <circle cx="765.0" cy="259.5" r="4.5" fill="#ffffff" stroke="#FF5252" stroke-width="2.5"/>
+  <circle cx="765.0" cy="157.1" r="4.5" fill="#ffffff" stroke="#FF5252" stroke-width="2.5"/>
 
   <!-- Date Axis Labels -->
-  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-10-06</text>
-  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-10-21</text>
-  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-11-04</text>
+  <text x="75.0" y="305" fill="#8b949e" font-size="11" text-anchor="start">2026-10-07</text>
+  <text x="431.9" y="305" fill="#8b949e" font-size="11" text-anchor="middle">2026-10-22</text>
+  <text x="765.0" y="305" fill="#8b949e" font-size="11" text-anchor="end">2026-11-05</text>
 </svg>
